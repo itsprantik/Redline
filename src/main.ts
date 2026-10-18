@@ -31,4 +31,4 @@ const nav: Nav = {
 };
 
 preloadAssets();
-nav.home();
+nav.home(); 
