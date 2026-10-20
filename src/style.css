@@ -229,12 +229,14 @@ canvas.scene { display: block; width: 100%; }
   border-radius: 10px;
   color: var(--muted);
   cursor: text;
+  position: relative;
 }
 .typebox.bad { animation: shake 0.22s; border-color: var(--red); }
 .word { display: inline-block; white-space: nowrap; }
 .ch { display: inline-block; white-space: pre; }
 .ch.ok { color: var(--green); }
 .ch.cur { color: #fff; background: rgba(232, 19, 43, 0.35); border-bottom: 2px solid var(--red-hot); border-radius: 2px; animation: blink 1s steps(2) infinite; }
+.ch.err { background: rgba(255, 59, 78, 0.55); color: #fff; border-radius: 2px; }
 .type-hint { color: var(--muted); font-size: 14px; min-height: 1.4em; }
 .ghost-input { position: absolute; left: -9999px; opacity: 0; width: 1px; height: 1px; }
 

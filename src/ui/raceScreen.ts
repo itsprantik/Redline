@@ -205,10 +205,15 @@ export function raceScreen(nav: Nav, config: RaceConfig): Screen {
     lampEls.forEach((l, i) => l.classList.toggle('on', i < n));
   }
 
-  function flash(): void {
+    function flash(): void {
     textBox.classList.remove('bad');
     void textBox.offsetWidth;
     textBox.classList.add('bad');
+    const missed = spans[race.session.pos];
+    if (missed) {
+      missed.classList.add('err');
+      window.setTimeout(() => missed.classList.remove('err'), 160);
+    }
   }
 
   function leave(go: () => void): void {
@@ -268,23 +273,36 @@ export function raceScreen(nav: Nav, config: RaceConfig): Screen {
   window.addEventListener('resize', onResize);
   window.setTimeout(onResize, 0);
 
-  function updateText(): void {
+    function updateText(): void {
     const pos = race.session.pos;
     while (cursorIdx < pos) {
       spans[cursorIdx].classList.remove('cur');
       spans[cursorIdx].classList.add('ok');
       cursorIdx++;
     }
-    if (spans[pos]) spans[pos].classList.add('cur');
-    prog.style.width = `${(race.session.progress * 100).toFixed(1)}%`;
     const cur = spans[pos];
-    if (cur && textBox.scrollHeight > textBox.clientHeight) {
-      const top = cur.offsetTop;
-      if (top > textBox.scrollTop + textBox.clientHeight - 36 || top < textBox.scrollTop) {
-        textBox.scrollTop = Math.max(0, top - 36);
-      }
+    if (cur) {
+      cur.classList.add('cur');
+      followCursor(cur);
     }
+    prog.style.width = `${(race.session.progress * 100).toFixed(1)}%`;
     if (race.phase === 'racing' && hint.textContent) hint.textContent = '';
+  }
+
+  /** Keeps the current letter on the middle of the three visible lines. */
+  function followCursor(cur: HTMLElement): void {
+    if (textBox.scrollHeight <= textBox.clientHeight) return;
+    const box = textBox.getBoundingClientRect();
+    const c = cur.getBoundingClientRect();
+    const style = getComputedStyle(textBox);
+    const padTop = parseFloat(style.paddingTop) || 0;
+    const lineH = parseFloat(style.lineHeight) || c.height || 32;
+    // Position of the cursor line inside the scrolling content, and inside the visible window.
+    const absTop = c.top - box.top + textBox.scrollTop - padTop;
+    const visibleTop = absTop - textBox.scrollTop;
+    if (visibleTop > lineH * 1.5 || visibleTop < -1) {
+      textBox.scrollTop = Math.max(0, absTop - lineH);
+    }
   }
 
   function frame(now: number): void {
