@@ -1,32 +1,55 @@
-# React + TypeScript + Vite
+# REDLINE
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+I an ordinary lazy developer who wants to make out something of his time has created a game which many would have thought that runs in your browser. for those slow typers and those who want to flex their WPM . I created maybe not the first formula 1 inspired racing game but instead of control you have to type. Your typing speed is your car's speed. If you have some common knowledge then u can know how to pay and I guess your have some knowledge else you would not have been here in github. 
 
-Currently, two official plugins are available:
+The project is built with the help of TypeScript, Vite and the Canvas 2D. There is no runtime dependecies and game framework
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Due to probability of copyright reason the teams, drivers, sponsores etc are all fictional/ made up. 
 
-## React Compiler
+If you watch F1 then there are some easter eggs which you may recognise.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+-**Different Modes.** There are different modes like practise and competition, Practise for practise and Competiton againt three so called AI.
+-**Typing gives speed**  Smooth conversion of WPM to kmh with 8 visual gears and a rpm bar, odometer etc
+-**Side View Of the Car** vector art or your own car model
+and many features -try the game I aint writing all the features aybe later , try it in
+~~~
+https://redlineproject.vercel.app/
+~~~
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## How to play
+### Option 1: web app
+just visit:
+~~~
+https://redlineproject.vercel.app/
+~~~
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### Option 2: cloning git repostry
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Make Sure **Node.js 20 aor higher is installed** and also npm.
+
+clone the git 
+~~~
+git clone https://github.com/itsprantik/Redline
+~~~
+
+install npm:
+~~~
+npm install
+~~~
+compile the code:
+~~~
+npm run build
+~~~
+Run the code:
+~~~
+npm run dev
+~~~
+
+---
+## How to play
+Just type guys and rules sre already there in the web app
+
+## Other things
+All thngs are mentioned along with the gamemode and other things
