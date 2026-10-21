@@ -41,7 +41,7 @@ npm install
 compile the code:
 ~~~
 npm run build
-~~~
+~~~     
 Run the code:
 ~~~
 npm run dev
@@ -53,3 +53,7 @@ Just type guys and rules sre already there in the web app
 
 ## Other things
 All thngs are mentioned along with the gamemode and other things
+
+## Creator
+
+Created by [@itsprantik]
